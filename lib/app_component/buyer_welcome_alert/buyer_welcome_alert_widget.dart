@@ -108,7 +108,7 @@ class _BuyerWelcomeAlertWidgetState extends State<BuyerWelcomeAlertWidget> {
                     if (currentUserEmailVerified == true) {
                       context.goNamed('BuyerHome');
                     } else {
-                      context.goNamed('Verifyemail');
+                      context.goNamed('BuyerVerifyEmail');
                     }
                   },
                   child: Text(

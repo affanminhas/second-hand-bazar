@@ -228,7 +228,7 @@ class _ForgottenPasswordWidgetState extends State<ForgottenPasswordWidget> {
                         context: context,
                       );
 
-                      context.pushNamed('Login');
+                      context.pushNamed('BuyerLogin');
                     },
                     text: 'Proceed',
                     options: FFButtonOptions(
@@ -278,7 +278,7 @@ class _ForgottenPasswordWidgetState extends State<ForgottenPasswordWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Login');
+                        context.pushNamed('BuyerLogin');
                       },
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,

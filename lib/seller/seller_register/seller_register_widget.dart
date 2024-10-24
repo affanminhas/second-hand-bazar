@@ -579,7 +579,7 @@ class _SellerRegisterWidgetState extends State<SellerRegisterWidget> {
                                           mouseCursor: SystemMouseCursors.click,
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () async {
-                                              context.pushNamed('Login');
+                                              context.pushNamed('BuyerLogin');
                                             },
                                         )
                                       ],

@@ -7,8 +7,6 @@ class SellerHomeModel extends FlutterFlowModel<SellerHomeWidget> {
 
   bool? buyer = true;
 
-  bool? seller = true;
-
   @override
   void initState(BuildContext context) {}
 

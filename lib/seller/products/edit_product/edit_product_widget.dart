@@ -193,8 +193,6 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                 quantity: int.tryParse(
                                     _model.quantityTextController.text),
                                 category: _model.categoryValue,
-                                discountPercentage: int.tryParse(
-                                    _model.discounTextController.text),
                               ),
                               ...mapToFirestore(
                                 {

@@ -817,7 +817,7 @@ class _SellerUserProfileWidgetState extends State<SellerUserProfileWidget> {
                                 await authManager.deleteUser(context);
 
                                 context.goNamedAuth(
-                                    'SellerHome', context.mounted);
+                                    'BuyerHome', context.mounted);
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,

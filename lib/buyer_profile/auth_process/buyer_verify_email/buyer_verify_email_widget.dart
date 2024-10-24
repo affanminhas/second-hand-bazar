@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'verifyemail_model.dart';
-export 'verifyemail_model.dart';
+import 'buyer_verify_email_model.dart';
+export 'buyer_verify_email_model.dart';
 
-class VerifyemailWidget extends StatefulWidget {
-  const VerifyemailWidget({super.key});
+class BuyerVerifyEmailWidget extends StatefulWidget {
+  const BuyerVerifyEmailWidget({super.key});
 
   @override
-  State<VerifyemailWidget> createState() => _VerifyemailWidgetState();
+  State<BuyerVerifyEmailWidget> createState() => _BuyerVerifyEmailWidgetState();
 }
 
-class _VerifyemailWidgetState extends State<VerifyemailWidget> {
-  late VerifyemailModel _model;
+class _BuyerVerifyEmailWidgetState extends State<BuyerVerifyEmailWidget> {
+  late BuyerVerifyEmailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VerifyemailModel());
+    _model = createModel(context, () => BuyerVerifyEmailModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }

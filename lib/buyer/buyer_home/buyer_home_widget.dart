@@ -1,4 +1,3 @@
-import '/app_component/na_v_b_a_r/na_v_b_a_r_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1075,7 +1074,7 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                 )
                                                 .where(
                                                   'category',
-                                                  isEqualTo: 'Electronics',
+                                                  isEqualTo: 'Home Textile',
                                                 ),
                                       ),
                                       builder: (context, snapshot) {
@@ -1291,8 +1290,8 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                 ),
                                                               ),
                                                               if (recommendItemRowProductsRecord
-                                                                      .discountPercentage >
-                                                                  0)
+                                                                      .discountedPrice >
+                                                                  0.0)
                                                                 Padding(
                                                                   padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -1328,40 +1327,13 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                                 BorderRadius.circular(20.0),
                                                                           ),
                                                                           child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                              child: RichText(
-                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                text: TextSpan(
-                                                                                  children: [
-                                                                                    TextSpan(
-                                                                                      text: recommendItemRowProductsRecord.discountPercentage.toString(),
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                          ),
-                                                                                    ),
-                                                                                    const TextSpan(
-                                                                                      text: ' %',
-                                                                                      style: TextStyle(),
-                                                                                    )
-                                                                                  ],
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                      ),
+                                                                              Text(
+                                                                            '${recommendItemRowProductsRecord.discountedPrice.toString()}%',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
-                                                                                textAlign: TextAlign.center,
-                                                                              ),
-                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1440,7 +1412,7 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                             formatNumber(
                                                                           functions.discountedPrice(
                                                                               recommendItemRowProductsRecord.price,
-                                                                              recommendItemRowProductsRecord.discountPercentage.toDouble()),
+                                                                              recommendItemRowProductsRecord.discountedPrice),
                                                                           formatType:
                                                                               FormatType.custom,
                                                                           currency:
@@ -1484,8 +1456,8 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                 ),
                                                               ),
                                                               if (recommendItemRowProductsRecord
-                                                                      .discountPercentage >
-                                                                  0)
+                                                                      .discountedPrice >
+                                                                  0.0)
                                                                 Text(
                                                                   formatNumber(
                                                                     recommendItemRowProductsRecord
@@ -1842,8 +1814,8 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                           ),
                                                         ),
                                                         if (tredingItemRowProductsRecord
-                                                                .discountPercentage >
-                                                            0)
+                                                                .discountedPrice >
+                                                            0.0)
                                                           Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
@@ -1880,51 +1852,19 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                           BorderRadius.circular(
                                                                               20.0),
                                                                     ),
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          const AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            RichText(
-                                                                          textScaler:
-                                                                              MediaQuery.of(context).textScaler,
-                                                                          text:
-                                                                              TextSpan(
-                                                                            children: [
-                                                                              TextSpan(
-                                                                                text: tredingItemRowProductsRecord.discountPercentage.toString(),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.bold,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                    ),
-                                                                              ),
-                                                                              const TextSpan(
-                                                                                text: ' %',
-                                                                                style: TextStyle(),
-                                                                              )
-                                                                            ],
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
+                                                                    child: Text(
+                                                                      '${tredingItemRowProductsRecord.discountedPrice.toString()}%',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                        ),
-                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -2000,8 +1940,7 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                                         tredingItemRowProductsRecord
                                                                             .price,
                                                                         tredingItemRowProductsRecord
-                                                                            .discountPercentage
-                                                                            .toDouble()),
+                                                                            .discountedPrice),
                                                                     formatType:
                                                                         FormatType
                                                                             .custom,
@@ -2053,8 +1992,8 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                                                           ),
                                                         ),
                                                         if (tredingItemRowProductsRecord
-                                                                .discountPercentage >
-                                                            0)
+                                                                .discountedPrice >
+                                                            0.0)
                                                           Text(
                                                             formatNumber(
                                                               tredingItemRowProductsRecord
@@ -2114,11 +2053,6 @@ class _BuyerHomeWidgetState extends State<BuyerHomeWidget> {
                       ),
                     ],
                   ),
-                ),
-                wrapWithModel(
-                  model: _model.naVBARModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: const NaVBARWidget(),
                 ),
               ],
             ),

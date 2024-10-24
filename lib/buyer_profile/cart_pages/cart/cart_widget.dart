@@ -1,5 +1,4 @@
 import '/app_component/empty_cart/empty_cart_widget.dart';
-import '/app_component/na_v_b_a_r/na_v_b_a_r_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -277,7 +276,7 @@ class _CartWidgetState extends State<CartWidget> {
                                                                     AutoSizeText(
                                                                   '${valueOrDefault<String>(
                                                                     rowProductsRecord
-                                                                        .discountPercentage
+                                                                        .discountedPrice
                                                                         .toString(),
                                                                     '0',
                                                                   )}% OFF',
@@ -609,7 +608,7 @@ class _CartWidgetState extends State<CartWidget> {
                                                                                 ...mapToFirestore(
                                                                                   {
                                                                                     'quantity': FieldValue.increment(-(1)),
-                                                                                    'final_price': FieldValue.increment(-(functions.discountedPrice(rowProductsRecord.price, rowProductsRecord.discountPercentage.toDouble())!)),
+                                                                                    'final_price': FieldValue.increment(-(functions.discountedPrice(rowProductsRecord.price, rowProductsRecord.discountedPrice)!)),
                                                                                   },
                                                                                 ),
                                                                               });
@@ -696,7 +695,7 @@ class _CartWidgetState extends State<CartWidget> {
                                                                               FieldValue.increment(1),
                                                                           'final_price': FieldValue.increment(functions.discountedPrice(
                                                                               rowProductsRecord.price,
-                                                                              rowProductsRecord.discountPercentage.toDouble())!),
+                                                                              rowProductsRecord.discountedPrice)!),
                                                                         },
                                                                       ),
                                                                     });
@@ -814,11 +813,6 @@ class _CartWidgetState extends State<CartWidget> {
                           ),
                         ),
                       ),
-                    wrapWithModel(
-                      model: _model.naVBARModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const NaVBARWidget(),
-                    ),
                   ],
                 ),
               ),

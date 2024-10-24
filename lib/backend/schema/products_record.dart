@@ -110,11 +110,6 @@ class ProductsRecord extends FirestoreRecord {
   DocumentReference? get buyerRef => _buyerRef;
   bool hasBuyerRef() => _buyerRef != null;
 
-  // "discountPercentage" field.
-  int? _discountPercentage;
-  int get discountPercentage => _discountPercentage ?? 0;
-  bool hasDiscountPercentage() => _discountPercentage != null;
-
   // "id" field.
   String? _id;
   String get id => _id ?? '';
@@ -145,7 +140,6 @@ class ProductsRecord extends FirestoreRecord {
     _hasMessage = snapshotData['has_message'] as bool?;
     _status = snapshotData['status'] as String?;
     _buyerRef = snapshotData['buyerRef'] as DocumentReference?;
-    _discountPercentage = castToType<int>(snapshotData['discountPercentage']);
     _id = snapshotData['id'] as String?;
     _isVerified = snapshotData['isVerified'] as bool?;
   }
@@ -199,7 +193,6 @@ Map<String, dynamic> createProductsRecordData({
   bool? hasMessage,
   String? status,
   DocumentReference? buyerRef,
-  int? discountPercentage,
   String? id,
   bool? isVerified,
 }) {
@@ -219,7 +212,6 @@ Map<String, dynamic> createProductsRecordData({
       'has_message': hasMessage,
       'status': status,
       'buyerRef': buyerRef,
-      'discountPercentage': discountPercentage,
       'id': id,
       'isVerified': isVerified,
     }.withoutNulls,
@@ -253,7 +245,6 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e1?.hasMessage == e2?.hasMessage &&
         e1?.status == e2?.status &&
         e1?.buyerRef == e2?.buyerRef &&
-        e1?.discountPercentage == e2?.discountPercentage &&
         e1?.id == e2?.id &&
         e1?.isVerified == e2?.isVerified;
   }
@@ -279,7 +270,6 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e?.hasMessage,
         e?.status,
         e?.buyerRef,
-        e?.discountPercentage,
         e?.id,
         e?.isVerified
       ]);

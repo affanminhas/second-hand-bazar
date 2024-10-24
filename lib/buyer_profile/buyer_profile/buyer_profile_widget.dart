@@ -488,61 +488,23 @@ class _BuyerProfileWidgetState extends State<BuyerProfileWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().isDialogShown = 'None';
-                                safeSetState(() {});
-                                if (valueOrDefault<bool>(
-                                        currentUserDocument?.isSeller, false) ==
-                                    true) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Welcome to Seller Panel',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: const Text('COMING SOON!'),
+                                      content: const Text(
+                                          'Something Big is coming! Stay Tuned.'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: const Text('Ok'),
                                         ),
-                                      ),
-                                      duration: const Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
-                                  FFAppState().isSellerLocal = true;
-                                  safeSetState(() {});
-
-                                  context.goNamed('SellerHome');
-
-                                  return;
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'No seller account! Please Register',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: const Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
-
-                                  context.pushNamed(
-                                    'SellerRegister',
-                                    queryParameters: {
-                                      'buyerRef': serializeParam(
-                                        buyerProfileBuyerRecord?.reference,
-                                        ParamType.DocumentReference,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-
-                                  return;
-                                }
+                                      ],
+                                    );
+                                  },
+                                );
                               },
                               child: Container(
                                 height: 83.0,
@@ -860,8 +822,7 @@ class _BuyerProfileWidgetState extends State<BuyerProfileWidget> {
                                     safeSetState(() {});
                                     await authManager.deleteUser(context);
 
-                                    context.goNamedAuth(
-                                        'SellerHome', context.mounted);
+                                    context.goNamed('BuyerLogin');
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,

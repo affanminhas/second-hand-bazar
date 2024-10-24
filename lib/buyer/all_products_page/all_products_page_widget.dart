@@ -1,4 +1,3 @@
-import '/app_component/na_v_b_a_r/na_v_b_a_r_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -633,8 +632,8 @@ class _AllProductsPageWidgetState extends State<AllProductsPageWidget> {
                                                   ),
                                                 ),
                                                 if (gridViewProductsRecord
-                                                        .discountPercentage >
-                                                    0)
+                                                        .discountedPrice >
+                                                    0.0)
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -667,64 +666,22 @@ class _AllProductsPageWidgetState extends State<AllProductsPageWidget> {
                                                                       .circular(
                                                                           20.0),
                                                             ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0),
-                                                                child: RichText(
-                                                                  textScaler: MediaQuery.of(
-                                                                          context)
-                                                                      .textScaler,
-                                                                  text:
-                                                                      TextSpan(
-                                                                    children: [
-                                                                      TextSpan(
-                                                                        text: gridViewProductsRecord
-                                                                            .discountPercentage
-                                                                            .toString(),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                            ),
-                                                                      ),
-                                                                      const TextSpan(
-                                                                        text:
-                                                                            ' %',
-                                                                        style:
-                                                                            TextStyle(),
-                                                                      )
-                                                                    ],
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                            child: Text(
+                                                              '${gridViewProductsRecord.discountedPrice.toString()}%',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                ),
-                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -781,8 +738,7 @@ class _AllProductsPageWidgetState extends State<AllProductsPageWidget> {
                                                                 gridViewProductsRecord
                                                                     .price,
                                                                 gridViewProductsRecord
-                                                                    .discountPercentage
-                                                                    .toDouble()),
+                                                                    .discountedPrice),
                                                             formatType:
                                                                 FormatType
                                                                     .custom,
@@ -838,8 +794,8 @@ class _AllProductsPageWidgetState extends State<AllProductsPageWidget> {
                                                   ),
                                                 ),
                                                 if (gridViewProductsRecord
-                                                        .discountPercentage >
-                                                    0)
+                                                        .discountedPrice >
+                                                    0.0)
                                                   Text(
                                                     formatNumber(
                                                       gridViewProductsRecord
@@ -890,11 +846,6 @@ class _AllProductsPageWidgetState extends State<AllProductsPageWidget> {
                     ],
                   ),
                 ),
-              ),
-              wrapWithModel(
-                model: _model.naVBARModel,
-                updateCallback: () => safeSetState(() {}),
-                child: const NaVBARWidget(),
               ),
             ],
           ),

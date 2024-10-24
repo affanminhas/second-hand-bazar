@@ -1166,7 +1166,7 @@ class _SellerRegisterMainWidgetState extends State<SellerRegisterMainWidget> {
                                   await UsersRecord.collection
                                       .doc(user.uid)
                                       .update(createUsersRecordData(
-                                        isSeller: true,
+                                        isSeller: false,
                                       ));
 
                                   await SellerRecord.collection
@@ -1261,7 +1261,7 @@ class _SellerRegisterMainWidgetState extends State<SellerRegisterMainWidget> {
                                         mouseCursor: SystemMouseCursors.click,
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () async {
-                                            context.pushNamed('Login');
+                                            context.pushNamed('BuyerLogin');
                                           },
                                       )
                                     ],

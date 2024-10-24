@@ -1034,6 +1034,10 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                                                         getCurrentTimestamp,
                                                     userRef:
                                                         currentUserReference,
+                                                    phoneNumber:
+                                                        columnAddressRecord
+                                                            .phoneNumber
+                                                            .toDouble(),
                                                   ),
                                                   ...mapToFirestore(
                                                     {

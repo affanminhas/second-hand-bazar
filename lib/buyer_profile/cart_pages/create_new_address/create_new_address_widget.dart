@@ -526,39 +526,61 @@ class _CreateNewAddressWidgetState extends State<CreateNewAddressWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await AddressRecord.collection
-                            .doc()
-                            .set(createAddressRecordData(
-                              address: _model.textController1.text,
-                              addressType: _model.radioButtonValue,
-                              phoneNumber:
-                                  int.tryParse(_model.textController3.text),
-                              userId: currentUserUid,
-                              pincode: _model.textController2.text,
-                            ));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'New address added succesfully!',
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
+                        if ((_model.textController1.text == '') ||
+                            (_model.textController2.text == '') ||
+                            (_model.textController3.text == '') ||
+                            (_model.radioButtonValue == null ||
+                                _model.radioButtonValue == '')) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Please enter all the details...',
+                                style: TextStyle(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                               ),
+                              duration: const Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
                             ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                          ),
-                        );
+                          );
+                        } else {
+                          await AddressRecord.collection
+                              .doc()
+                              .set(createAddressRecordData(
+                                address: _model.textController1.text,
+                                addressType: _model.radioButtonValue,
+                                phoneNumber:
+                                    int.tryParse(_model.textController3.text),
+                                userId: currentUserUid,
+                                pincode: _model.textController2.text,
+                              ));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'New address added succesfully!',
+                                style: TextStyle(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
+                              ),
+                              duration: const Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
+                            ),
+                          );
 
-                        context.pushNamed(
-                          'Pay_Workplace',
-                          queryParameters: {
-                            'finalPrice': serializeParam(
-                              0.0,
-                              ParamType.double,
-                            ),
-                          }.withoutNulls,
-                        );
+                          context.pushNamed(
+                            'Pay_Workplace',
+                            queryParameters: {
+                              'finalPrice': serializeParam(
+                                0.0,
+                                ParamType.double,
+                              ),
+                            }.withoutNulls,
+                          );
+                        }
                       },
                       text: 'Add Address',
                       options: FFButtonOptions(

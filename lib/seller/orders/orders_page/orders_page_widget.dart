@@ -191,7 +191,7 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget>
                           labelColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           unselectedLabelColor:
-                              FlutterFlowTheme.of(context).secondaryText,
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           backgroundColor: FlutterFlowTheme.of(context).primary,
                           unselectedBackgroundColor:
                               FlutterFlowTheme.of(context).secondaryBackground,

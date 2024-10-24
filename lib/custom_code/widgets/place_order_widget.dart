@@ -86,8 +86,8 @@ class _PlaceOrderWidgetState extends State<PlaceOrderWidget> {
     setState(() {
       isLoading = true;
     });
-    String username = 'rzp_test_ksyrvPeNbbTbR5';
-    String password = '0hwLxksjAmtg4EgR8gYbmY8E';
+    String username = 'rzp_live_gjG4BqXNEDRl0y';
+    String password = 'GX7MKpXFd26cGzv8QKtAJBra';
 
     /// Encoding the username and password in base64
     String basicAuth =
@@ -101,7 +101,7 @@ class _PlaceOrderWidgetState extends State<PlaceOrderWidget> {
 
     /// Define the body of the request
     var body = {
-      'amount': widget.amount,
+      'amount': widget.amount * 100,
       'currency': 'INR',
     };
     try {
@@ -126,7 +126,7 @@ class _PlaceOrderWidgetState extends State<PlaceOrderWidget> {
 
   void openRazorPaySheet(Map<String, dynamic> result) {
     var options = {
-      'key': 'rzp_test_ksyrvPeNbbTbR5',
+      'key': 'rzp_live_gjG4BqXNEDRl0y',
       'amount': result['amount'], //in the smallest currency sub-unit.
       'name': widget.name,
       'order_id': result['id'], // Generate order_id using Orders API

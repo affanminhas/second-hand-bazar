@@ -483,8 +483,10 @@ class _PayWorkplaceWidgetState extends State<PayWorkplaceWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: (_model.radioButtonValue == null ||
-                                _model.radioButtonValue == '')
+                        onPressed: ((_model.radioButtonValue == null ||
+                                    _model.radioButtonValue == '') &&
+                                (payWorkplaceAddressRecord?.address == null ||
+                                    payWorkplaceAddressRecord?.address == ''))
                             ? null
                             : () async {
                                 context.pushNamed(

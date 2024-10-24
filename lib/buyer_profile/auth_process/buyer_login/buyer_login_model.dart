@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'login_widget.dart' show LoginWidget;
+import 'buyer_login_widget.dart' show BuyerLoginWidget;
 import 'package:flutter/material.dart';
 
-class LoginModel extends FlutterFlowModel<LoginWidget> {
+class BuyerLoginModel extends FlutterFlowModel<BuyerLoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for emailTExtFeild widget.

@@ -1,16 +1,15 @@
 // Export pages
 export '/onboarding/onboarding/onboarding_widget.dart' show OnboardingWidget;
-export '/onboarding/userselection/userselection_widget.dart'
-    show UserselectionWidget;
 export '/buyer_profile/auth_process/buyer_register/buyer_register_widget.dart'
     show BuyerRegisterWidget;
-export '/buyer_profile/auth_process/verifyemail/verifyemail_widget.dart'
-    show VerifyemailWidget;
+export '/buyer_profile/auth_process/buyer_verify_email/buyer_verify_email_widget.dart'
+    show BuyerVerifyEmailWidget;
 export '/buyer_profile/auth_process/buyer_verificationsuccessful/buyer_verificationsuccessful_widget.dart'
     show BuyerVerificationsuccessfulWidget;
 export '/buyer_profile/auth_process/buyer_interest/buyer_interest_widget.dart'
     show BuyerInterestWidget;
-export '/buyer_profile/auth_process/login/login_widget.dart' show LoginWidget;
+export '/buyer_profile/auth_process/buyer_login/buyer_login_widget.dart'
+    show BuyerLoginWidget;
 export '/buyer_profile/auth_process/forgotten_password/forgotten_password_widget.dart'
     show ForgottenPasswordWidget;
 export '/buyer_profile/auth_process/o_t_preset/o_t_preset_widget.dart'
@@ -123,8 +122,6 @@ export '/seller/products/unverified_products/unverified_products/unverified_prod
     show UnverifiedProductsWidget;
 export '/seller/auth_process/seller_f_orgotten_password/seller_f_orgotten_password_widget.dart'
     show SellerFOrgottenPasswordWidget;
-export '/onboarding/userselection_copy/userselection_copy_widget.dart'
-    show UserselectionCopyWidget;
 export '/seller/orders/order_detail_copy/order_detail_copy_widget.dart'
     show OrderDetailCopyWidget;
 export '/seller/auth_process/seller_verifyemail_copy/seller_verifyemail_copy_widget.dart'

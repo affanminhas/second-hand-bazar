@@ -350,7 +350,9 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                             children: [
                               AutoSizeText(
                                 viewProductScreenProductsRecord.name
-                                    .maybeHandleOverflow(maxChars: 25),
+                                    .maybeHandleOverflow(
+                                  maxChars: 25,
+                                ),
                                 maxLines: 1,
                                 minFontSize: 18.0,
                                 style: FlutterFlowTheme.of(context)
@@ -546,12 +548,17 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                             chipSpacing: 12.0,
                                             rowSpacing: 24.0,
                                             multiselect: false,
+                                            initialized:
+                                                _model.sizeChipsValue != null,
                                             alignment: WrapAlignment.start,
                                             controller: _model
                                                     .sizeChipsValueController ??=
                                                 FormFieldController<
                                                     List<String>>(
-                                              [],
+                                              [
+                                                viewProductScreenProductsRecord
+                                                    .sizes.first
+                                              ],
                                             ),
                                             wrapped: true,
                                           ),
@@ -684,12 +691,17 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                             chipSpacing: 12.0,
                                             rowSpacing: 24.0,
                                             multiselect: false,
+                                            initialized:
+                                                _model.colorChipsValue != null,
                                             alignment: WrapAlignment.start,
                                             controller: _model
                                                     .colorChipsValueController ??=
                                                 FormFieldController<
                                                     List<String>>(
-                                              [],
+                                              [
+                                                viewProductScreenProductsRecord
+                                                    .colour.first
+                                              ],
                                             ),
                                             wrapped: true,
                                           ),
@@ -773,8 +785,7 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                               viewProductScreenProductsRecord
                                                   .price,
                                               viewProductScreenProductsRecord
-                                                  .discountPercentage
-                                                  .toDouble()),
+                                                  .discountedPrice),
                                           formatType: FormatType.custom,
                                           currency: '₹',
                                           format: '',
@@ -804,7 +815,7 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                         valueOrDefault<String>(
                                           formatNumber(
                                             viewProductScreenProductsRecord
-                                                .discountedPrice,
+                                                .price,
                                             formatType: FormatType.custom,
                                             format: 'INR ',
                                             locale: '',
@@ -849,13 +860,11 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                       price: functions.discountedPrice(
                                           viewProductScreenProductsRecord.price,
                                           viewProductScreenProductsRecord
-                                              .discountPercentage
-                                              .toDouble()),
+                                              .discountedPrice),
                                       finalPrice: functions.discountedPrice(
                                           viewProductScreenProductsRecord.price,
                                           viewProductScreenProductsRecord
-                                              .discountPercentage
-                                              .toDouble()),
+                                              .discountedPrice),
                                       quantity: 1,
                                       userRef: viewProductScreenProductsRecord
                                           .buyerRef,
@@ -899,8 +908,7 @@ class _ViewProductScreenWidgetState extends State<ViewProductScreenWidget>
                                     functions.discountedPrice(
                                         viewProductScreenProductsRecord.price,
                                         viewProductScreenProductsRecord
-                                            .discountPercentage
-                                            .toDouble())!);
+                                            .discountedPrice)!);
                                 safeSetState(() {});
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(

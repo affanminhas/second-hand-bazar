@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'recommend_item_page_model.dart';
@@ -191,8 +192,8 @@ class _RecommendItemPageWidgetState extends State<RecommendItemPageWidget> {
                                               ),
                                             ),
                                             if (gridViewProductsRecord
-                                                    .discountPercentage >
-                                                0)
+                                                    .discountedPrice >
+                                                0.0)
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -222,72 +223,23 @@ class _RecommendItemPageWidgetState extends State<RecommendItemPageWidget> {
                                                                   .circular(
                                                                       20.0),
                                                         ),
-                                                        child: Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        0.0,
-                                                                        2.0,
-                                                                        0.0),
-                                                            child: RichText(
-                                                              textScaler:
-                                                                  MediaQuery.of(
-                                                                          context)
-                                                                      .textScaler,
-                                                              text: TextSpan(
-                                                                children: [
-                                                                  TextSpan(
-                                                                    text: gridViewProductsRecord
-                                                                        .discountPercentage
-                                                                        .toString(),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
-                                                                  const TextSpan(
-                                                                    text: ' %',
-                                                                    style:
-                                                                        TextStyle(),
-                                                                  )
-                                                                ],
-                                                                style: FlutterFlowTheme.of(
+                                                        child: Text(
+                                                          '${gridViewProductsRecord.discountedPrice.toString()}%',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                    ),
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                            ),
-                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -337,17 +289,17 @@ class _RecommendItemPageWidgetState extends State<RecommendItemPageWidget> {
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                      text: valueOrDefault<
-                                                          String>(
-                                                        formatNumber(
-                                                          gridViewProductsRecord
-                                                              .discountedPrice,
-                                                          formatType:
-                                                              FormatType.custom,
-                                                          format: '₹',
-                                                          locale: '',
-                                                        ),
-                                                        '999',
+                                                      text: formatNumber(
+                                                        functions.discountedPrice(
+                                                            gridViewProductsRecord
+                                                                .price,
+                                                            gridViewProductsRecord
+                                                                .discountedPrice),
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        currency: '₹',
+                                                        format: '',
+                                                        locale: '',
                                                       ),
                                                       style: TextStyle(
                                                         color:
@@ -383,8 +335,8 @@ class _RecommendItemPageWidgetState extends State<RecommendItemPageWidget> {
                                               ),
                                             ),
                                             if (gridViewProductsRecord
-                                                    .discountPercentage >
-                                                0)
+                                                    .discountedPrice >
+                                                0.0)
                                               Text(
                                                 formatNumber(
                                                   gridViewProductsRecord.price,

@@ -689,52 +689,76 @@ class _BuyerRegisterWidgetState extends State<BuyerRegisterWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      GoRouter.of(context).prepareAuthEvent(true);
-                      if (_model.passwordTextController.text !=
-                          _model.confirmpasswordTextController.text) {
+                      if ((_model.uploadedFileUrl == '') ||
+                          (_model.nameTextController.text == '') ||
+                          (_model.ageTextController.text == '') ||
+                          (_model.emailTextController.text == '') ||
+                          (_model.phonenumberTextController.text == '') ||
+                          (_model.passwordTextController.text == '')) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
+                          SnackBar(
                             content: Text(
-                              'Passwords don\'t match!',
+                              'Please fill all the details and upload profile image!',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                             ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
                           ),
                         );
                         return;
-                      }
+                      } else {
+                        GoRouter.of(context).prepareAuthEvent(true);
+                        if (_model.passwordTextController.text !=
+                            _model.confirmpasswordTextController.text) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Passwords don\'t match!',
+                              ),
+                            ),
+                          );
+                          return;
+                        }
 
-                      final user = await authManager.createAccountWithEmail(
-                        context,
-                        _model.emailTextController.text,
-                        _model.passwordTextController.text,
-                      );
-                      if (user == null) {
+                        final user = await authManager.createAccountWithEmail(
+                          context,
+                          _model.emailTextController.text,
+                          _model.passwordTextController.text,
+                        );
+                        if (user == null) {
+                          return;
+                        }
+
+                        await UsersRecord.collection
+                            .doc(user.uid)
+                            .update(createUsersRecordData(
+                              isSeller: false,
+                            ));
+
+                        await BuyerRecord.collection
+                            .doc()
+                            .set(createBuyerRecordData(
+                              age: int.tryParse(_model.ageTextController.text),
+                              phoneNumber: int.tryParse(
+                                  _model.phonenumberTextController.text),
+                              name: _model.nameTextController.text,
+                              email: _model.emailTextController.text,
+                              image: _model.uploadedFileUrl,
+                              isBuyer: true,
+                            ));
+                        await authManager.sendEmailVerification();
+
+                        context.pushNamedAuth(
+                          'BuyerVerifyEmail',
+                          context.mounted,
+                          ignoreRedirect: true,
+                        );
+
                         return;
                       }
-
-                      await UsersRecord.collection
-                          .doc(user.uid)
-                          .update(createUsersRecordData(
-                            isSeller: true,
-                          ));
-
-                      await BuyerRecord.collection
-                          .doc()
-                          .set(createBuyerRecordData(
-                            age: int.tryParse(_model.ageTextController.text),
-                            phoneNumber: int.tryParse(
-                                _model.phonenumberTextController.text),
-                            name: _model.nameTextController.text,
-                            email: _model.emailTextController.text,
-                            image: _model.uploadedFileUrl,
-                            isBuyer: true,
-                          ));
-                      await authManager.sendEmailVerification();
-
-                      context.pushNamedAuth(
-                        'Verifyemail',
-                        context.mounted,
-                        ignoreRedirect: true,
-                      );
                     },
                     text: 'Register',
                     options: FFButtonOptions(
@@ -802,7 +826,7 @@ class _BuyerRegisterWidgetState extends State<BuyerRegisterWidget> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = () async {
                                 context.pushNamed(
-                                  'Login',
+                                  'BuyerLogin',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,

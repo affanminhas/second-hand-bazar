@@ -303,7 +303,7 @@ class _VendorProfileWidgetState extends State<VendorProfileWidget>
                               labelColor:
                                   FlutterFlowTheme.of(context).primaryText,
                               unselectedLabelColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(

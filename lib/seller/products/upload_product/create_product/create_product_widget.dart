@@ -151,8 +151,6 @@ class _CreateProductWidgetState extends State<CreateProductWidget> {
                           category: _model.categoryValue,
                           status: 'pending',
                           sellerRef: containerSellerRecord?.reference,
-                          discountPercentage: int.tryParse(
-                              _model.discountTextfiledTextController.text),
                         ),
                         ...mapToFirestore(
                           {

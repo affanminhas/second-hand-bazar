@@ -87,19 +87,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OnboardingWidget(),
         ),
         FFRoute(
-          name: 'Userselection',
-          path: '/userselection',
-          builder: (context, params) => const UserselectionWidget(),
-        ),
-        FFRoute(
           name: 'BuyerRegister',
           path: '/buyerRegister',
           builder: (context, params) => const BuyerRegisterWidget(),
         ),
         FFRoute(
-          name: 'Verifyemail',
-          path: '/verifyemail',
-          builder: (context, params) => const VerifyemailWidget(),
+          name: 'BuyerVerifyEmail',
+          path: '/buyerverifyemail',
+          builder: (context, params) => const BuyerVerifyEmailWidget(),
         ),
         FFRoute(
           name: 'BuyerVerificationsuccessful',
@@ -112,9 +107,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const BuyerInterestWidget(),
         ),
         FFRoute(
-          name: 'Login',
-          path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          name: 'BuyerLogin',
+          path: '/buyer_login',
+          builder: (context, params) => const BuyerLoginWidget(),
         ),
         FFRoute(
           name: 'ForgottenPassword',
@@ -198,7 +193,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Cart',
           path: '/cart',
-          builder: (context, params) => const CartWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Cart') : const CartWidget(),
         ),
         FFRoute(
           name: 'Viewcart_SingleiItem',
@@ -259,7 +255,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Processing_Packages',
           path: '/processingPackages',
-          builder: (context, params) => const ProcessingPackagesWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Processing_Packages')
+              : const ProcessingPackagesWidget(),
         ),
         FFRoute(
           name: 'OrdersPage',
@@ -284,7 +282,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'BuyerProfile',
           path: '/BuyerProfile',
-          builder: (context, params) => const BuyerProfileWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'BuyerProfile')
+              : const BuyerProfileWidget(),
         ),
         FFRoute(
           name: 'AccountSetting',
@@ -428,9 +428,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SellerProducts',
           path: '/sellerProducts',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'SellerProducts')
-              : const SellerProductsWidget(),
+          builder: (context, params) => const SellerProductsWidget(),
         ),
         FFRoute(
           name: 'ProductDetails',
@@ -479,7 +477,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'BuyerHome',
           path: '/buyerHome',
-          builder: (context, params) => const BuyerHomeWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'BuyerHome')
+              : const BuyerHomeWidget(),
         ),
         FFRoute(
           name: 'Splash',
@@ -489,9 +489,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SellerHome',
           path: '/sellerHome',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'SellerHome')
-              : const SellerHomeWidget(),
+          builder: (context, params) => const SellerHomeWidget(),
         ),
         FFRoute(
           name: 'UnverifiedProducts',
@@ -502,11 +500,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SellerFOrgottenPassword',
           path: '/sellerFOrgottenPassword',
           builder: (context, params) => const SellerFOrgottenPasswordWidget(),
-        ),
-        FFRoute(
-          name: 'UserselectionCopy',
-          path: '/userselectionCopy',
-          builder: (context, params) => const UserselectionCopyWidget(),
         ),
         FFRoute(
           name: 'OrderDetailCopy',
@@ -586,7 +579,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AllProductsPage',
           path: '/allproduct',
-          builder: (context, params) => const AllProductsPageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'AllProductsPage')
+              : const AllProductsPageWidget(),
         ),
         FFRoute(
           name: 'passwordMailPage',
@@ -652,9 +647,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ChatUsers',
           path: '/chatUsers',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChatUsers')
-              : const ChatUsersWidget(),
+          builder: (context, params) => const ChatUsersWidget(),
         ),
         FFRoute(
           name: 'OnboardingScreen',
@@ -699,9 +692,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'pendingProductsCopy',
           path: '/pendingProductsCopy',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'pendingProductsCopy')
-              : const PendingProductsCopyWidget(),
+          builder: (context, params) => const PendingProductsCopyWidget(),
         ),
         FFRoute(
           name: 'SellerCheck',

@@ -167,8 +167,7 @@ class _OrderedProductDetailsWidgetState
                           formatNumber(
                             functions.discountedPrice(
                                 columnProductsRecord.price,
-                                columnProductsRecord.discountPercentage
-                                    .toDouble()),
+                                columnProductsRecord.discountedPrice),
                             formatType: FormatType.custom,
                             currency: '₹',
                             format: '',

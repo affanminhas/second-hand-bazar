@@ -266,13 +266,8 @@ class _PhoneOTPWidgetState extends State<PhoneOTPWidget>
                                     return;
                                   }
 
-                                  if (FFAppState().userType == 'seller') {
-                                    context.goNamedAuth(
-                                        'sellerRegisterMain', context.mounted);
-                                  } else {
-                                    context.goNamedAuth(
-                                        'BuyerRegister', context.mounted);
-                                  }
+                                  context.pushNamedAuth(
+                                      'BuyerRegister', context.mounted);
                                 },
                                 text: 'Verify',
                                 options: FFButtonOptions(

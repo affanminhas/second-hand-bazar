@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'verifyemail_widget.dart' show VerifyemailWidget;
+import 'buyer_verify_email_widget.dart' show BuyerVerifyEmailWidget;
 import 'package:flutter/material.dart';
 
-class VerifyemailModel extends FlutterFlowModel<VerifyemailWidget> {
+class BuyerVerifyEmailModel extends FlutterFlowModel<BuyerVerifyEmailWidget> {
   @override
   void initState(BuildContext context) {}
 

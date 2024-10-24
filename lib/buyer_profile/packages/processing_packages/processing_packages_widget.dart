@@ -1,4 +1,3 @@
-import '/app_component/na_v_b_a_r/na_v_b_a_r_widget.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -322,7 +321,10 @@ class _ProcessingPackagesWidgetState extends State<ProcessingPackagesWidget> {
                                                                         AutoSizeText(
                                                                           containerProductsRecord
                                                                               .name
-                                                                              .maybeHandleOverflow(maxChars: 25),
+                                                                              .maybeHandleOverflow(
+                                                                            maxChars:
+                                                                                25,
+                                                                          ),
                                                                           maxLines:
                                                                               2,
                                                                           minFontSize:
@@ -418,8 +420,7 @@ class _ProcessingPackagesWidgetState extends State<ProcessingPackagesWidget> {
                                                               containerProductsRecord
                                                                   .price,
                                                               containerProductsRecord
-                                                                  .discountPercentage
-                                                                  .toDouble()),
+                                                                  .discountedPrice),
                                                           formatType:
                                                               FormatType.custom,
                                                           currency: '₹',
@@ -496,11 +497,6 @@ class _ProcessingPackagesWidgetState extends State<ProcessingPackagesWidget> {
                         ],
                       ),
                     ),
-                  ),
-                  wrapWithModel(
-                    model: _model.naVBARModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: const NaVBARWidget(),
                   ),
                 ],
               ),
