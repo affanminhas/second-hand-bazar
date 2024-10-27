@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'phone_login_model.dart';
@@ -258,6 +259,14 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodyLargeFamily),
                                       ),
+                                  maxLength: 13,
+                                  maxLengthEnforcement:
+                                      MaxLengthEnforcement.enforced,
+                                  buildCounter: (context,
+                                          {required currentLength,
+                                          required isFocused,
+                                          maxLength}) =>
+                                      null,
                                   keyboardType:
                                       const TextInputType.numberWithOptions(
                                           signed: true, decimal: true),
